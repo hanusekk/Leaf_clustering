@@ -24,7 +24,7 @@ Features such as area, perimeter, maximum diameter vertically and horizontally, 
         
   * Lp2 Ratio
         $W8=\frac{L_{max}}{L}$
-        $L_{max}$ - Maximum size of the object, L- object perimeter
+        where: $L_{max}$ - Maximum size of the object, L- object perimeter
         
 The given formulas were implemented in the Matlab environment, the results were saved as a vector of ten leaves. From Workspace, the coefficients were saved in a file with the extension .mat.
 
