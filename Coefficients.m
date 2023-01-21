@@ -1,6 +1,6 @@
 clear all
 close all
-%% wczytanie liści i binaryzacja
+%% leaf read and binarization
 img1=imread('1krzew.png');
 img2=imread('2.png');
 img3=imread('3.png');
@@ -22,7 +22,7 @@ BW8=imbinarize(img8);
 BW9=imbinarize(img9);
 BW10=imbinarize(img10);
 
-%% zamykanie obiektu
+%% object closing
 BW1=bwareaopen(BW1,1000);
 BW2=bwareaopen(BW2,1000);
 BW3=bwareaopen(BW3,1000);
@@ -33,7 +33,7 @@ BW7=bwareaopen(BW7,1000);
 BW8=bwareaopen(BW8,1000);
 BW9=bwareaopen(BW9,1000);
 BW10=bwareaopen(BW10,1000);
-%% kontur
+%% contour
 B=boundarymask(BW1);
 B2=boundarymask(BW2);
 B3=boundarymask(BW3);
@@ -44,7 +44,7 @@ B7=boundarymask(BW7);
 B8=boundarymask(BW8);
 B9=boundarymask(BW9);
 B10=boundarymask(BW10);
-%% zamknięcie konturu
+%% contour closing
 B=bwareaopen(B,1000);
 B2=bwareaopen(B2,1000);
 B3=bwareaopen(B3,1000);
@@ -55,7 +55,7 @@ B7=bwareaopen(B7,1000);
 B8=bwareaopen(B8,1000);
 B9=bwareaopen(B9,1000);
 B10=bwareaopen(B10,1000);
-%% wyznaczanie w plot kontura
+%% Plot the contour from boundary
 [m, n] = size(B);
 x=1;
 for i=1:1:m
@@ -198,7 +198,7 @@ for i=1:1:m10
 end
 z10=boundary(L10(:,2),L10(:,1));
 plot(L10(z10,2),L10(z10,1))
-%% Pole powierzchni liścia
+%% Leaf area
 A1=polyarea(L(z,2),L(z,1));
 A2=polyarea(L2(z2,2),L2(z2,1));
 A3=polyarea(L3(z3,2),L3(z3,1));
@@ -209,7 +209,7 @@ A7=polyarea(L7(z7,2),L7(z7,1));
 A8=polyarea(L8(z8,2),L8(z8,1));
 A9=polyarea(L9(z9,2),L9(z9,1));
 A10=polyarea(L10(z10,2),L10(z10,1));
-%% Długość krawędzi 
+%% Edge length 
 pol1=polyshape(L(z,2),L(z,1));
 OB1=perimeter(pol1);
 pol2=polyshape(L2(z2,2),L2(z2,1));
@@ -231,7 +231,7 @@ OB9=perimeter(pol9);
 pol10=polyshape(L10(z10,2),L10(z10,1));
 OB10=perimeter(pol10);
 
-%% Współczynnik W10
+%%  W10 ratio
 Lh1=max(L(z,2))-min(L(z,2));
 Lv1=max(L(z,1))-min(L(z,1));
 W101=Lh1/Lv1;
@@ -263,7 +263,7 @@ Lh10=max(L10(z10,2))-min(L10(z10,2));
 Lv10=max(L10(z10,1))-min(L10(z10,1));
 W1010=Lh10/Lv10;
 
-%% Współczynnik W8
+%%  W8 ratio
 W81=Lh1/OB1;
 W82=Lh2/OB2;
 W83=Lh3/OB3;
@@ -274,7 +274,7 @@ W87=Lh7/OB7;
 W88=Lh8/OB8;
 W89=Lh9/OB9;
 W810=Lh10/OB10;
-%% Współczynnik W1
+%% W1 ratio
 W11=(4*pi*A1)/(OB1^2);
 W12=(4*pi*A2)/(OB2^2);
 W13=(4*pi*A3)/(OB3^2);
